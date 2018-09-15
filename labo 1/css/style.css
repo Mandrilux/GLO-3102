@@ -1,0 +1,178 @@
+*
+{
+  margin: 0px;
+}
+
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url("../fonts/montserrat/Montserrat-Thin.otf");
+}
+body
+{
+  font-family: Montserrat-Regular;
+  background-color: #F2F2F2;
+}
+.wrapper-menu
+{
+  width: 100%;
+  margin: 0 auto;
+}
+
+nav
+{
+  background-color: #65dc9a;
+
+}
+
+nav ul
+{
+  list-style-type: none;
+  padding : 0;
+}
+
+nav a
+{
+  text-decoration : none;
+  color: white;
+  display: block;
+  padding:20px 10px;
+  font-weight: bold;
+}
+nav a:hover
+{
+background-color: white;
+color:#65dc9a;
+}
+
+
+.wrapp-picture
+{
+    text-align: center;
+    padding: 20px;
+    height: 375px;
+}
+
+.wrapp-about, .wrapp-text, .picture
+{
+  background-color: white;
+  padding:5px;
+  -moz-box-shadow: 1px 1px 10px 0px #656565;
+  -webkit-box-shadow: 1px 1px 10px 0px #656565;
+  -o-box-shadow: 1px 1px 10px 0px #656565;
+  box-shadow: 1px 1px 10px 0px #656565;
+}
+
+.wrapp-about
+{
+    background-color: #65dc9a;
+}
+.row
+{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+
+.column
+{
+    flex: 25%;
+}
+
+.wrapp-about > h1
+{
+  color:white;
+  padding-bottom:6px;
+}
+
+.picture
+{
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+.picture > img
+{
+  padding:5px;
+  border:3px solid black;
+  border-radius : 20px;
+  width: 275px;
+  height: 210px;
+}
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #65dc9a;
+    color:white;
+    width: 100%;
+}
+
+input[type=checkbox]
+{
+    display: none;
+}
+
+input[type=checkbox]:checked ~ #navbar
+{
+    display: block;
+}
+
+.wrapp-picture
+{
+    margin-bottom: 75px;
+}
+
+@media screen and (min-width: 768px)
+{
+  nav ul
+  {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hide-sm
+  {
+    display: none;
+  }
+}
+
+p
+{
+  text-align: left;
+  padding:10px;
+}
+@media screen and (max-width: 767px)
+{
+
+  ul#navbar
+  {
+      position: absolute;
+      display: none;
+      background-color: #65dc9a;
+      width: 100%;
+  }
+
+  .display-menu
+  {
+      padding-left:20px;
+      width: 100%;
+      margin-top:20px;
+      height: 50px;
+      padding-top:20px;
+  }
+  a
+  {
+    text-align: center;
+  }
+
+  .picture > img
+  {
+    padding:2px;
+    width: 200px;
+    height: 135px;
+  }
+
+  .wrapp-picture
+  {
+      margin-bottom: 40px;
+  }
+}
