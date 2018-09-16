@@ -88,3 +88,10 @@ function changeInput(p) {
     research.value = p.getAttribute("data-value");
     unshowDatas();
 }
+
+function clearInput()
+{
+    var research = document.getElementById('research');
+    research.value='';
+    unshowDatas();
+}
