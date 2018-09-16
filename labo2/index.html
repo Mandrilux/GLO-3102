@@ -18,9 +18,12 @@
 <section>
     <h3>Zone de recherche</h3>
     <div class="wrapp-input" id="wrapp-input">
+        <div id="input_container">
       <input type="text" id="research" onclick="printDatas(this.value)">
+        <img class="cross" src="./img/cross.png">
+        </div>
         <div class="wrapp-data" id="data">
-            <p data-value="Batiste" onclick="changeInput(this)">Baptiste</p>
+            <p data-value="Baptiste" onclick="changeInput(this)">Baptiste</p>
             <p data-value="Laurent" onclick="changeInput(this)">Laurent</p>
             <p data-value="Patrick" onclick="changeInput(this)">Patrick</p>
             <p data-value="Jean" onclick="changeInput(this)">Jean</p>
@@ -39,7 +42,6 @@
         </div>
     </div>
 </section>
-
 
 <footer>
   <p>© 2018  Baptiste HERAUD & Amandine PARIS</p>
