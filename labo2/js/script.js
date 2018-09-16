@@ -28,6 +28,7 @@ function printDatas(value)
     let block = document.getElementById("data");
     let p = block.getElementsByTagName("p");
 
+    block.style.display = "block";
     if (value === "") {
         showAllDatas(p);
         return;
@@ -79,6 +80,7 @@ function unshowDatas() {
     for (let i = 0; i < p.length; i++) {
         p[i].style.display = "none";
     }
+    block.style.display = "none";
     removeError();
 }
 function changeInput(p) {
