@@ -98,6 +98,7 @@ input {
 .cross
 {
     position:absolute;
+    top: 8px;
     bottom:3px;
     right:5px;
     width:20px;
@@ -106,6 +107,5 @@ input {
 
 #input_container {
     position:relative;
-    background:#ddd;
     width: 100%;
 }
