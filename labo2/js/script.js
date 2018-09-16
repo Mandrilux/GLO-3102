@@ -53,11 +53,12 @@ function showSearchDatas(p, value){
     for (i = 0; i < p.length; i++) {
         tmp = p[i].innerHTML;
         tmp = tmp.trim();
+
         tmp = tmp.substr(0,value.length);
 
         if (value.length >= 1) {
             tmp = tmp.toLowerCase();
-            if (tmp === value.toLowerCase()) {
+            if (tmp === value.toLowerCase() || p[i].innerHTML.includes(value)) {
                 removeError();
                 p[i].style.display = "block";
                 isOK = true;
