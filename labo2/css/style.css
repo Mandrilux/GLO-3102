@@ -9,12 +9,54 @@ body
   background-color: #F2F2F2;
 }
 
-.wrapp-data p, .error p
-{
-    display: none;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #97b8ed;
+    padding: 15px 0;
+}
+header > * > h1 {
+    text-transform: uppercase;
 }
 
-@media screen and (max-width: 767px)
-{
+section {
+    margin-top: 90px;
+    width: 80%;
+    margin-left: 10%;
+}
+@media screen and (max-width : 673px){
+    section {
+        margin-top: 120px;
+    }
+}
+@media screen and (max-width : 419px){
+    section {
+        margin-top: 155px;
+    }
+}
 
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #97b8ed;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.div-logo {
+    width: 80%;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.wrapp-data p, .error
+{
+    display: none;
 }

@@ -1,5 +1,4 @@
 window.onkeydown = function (e) {
-
     var research = document.getElementById('research');
     if (document.activeElement !== research)
     {
@@ -8,12 +7,21 @@ window.onkeydown = function (e) {
             research.value='';
         }
     }
+    unshowDatas();
 }
 
 window.onkeyup = function (e) {
     var research = document.getElementById('research');
     printDatas(research.value);
 }
+
+//set mouse pour unshow dropdown
+document.onmouseup = function (e){
+    let dropdown = document.getElementById('research');
+    let target = e.target;
+    if (target !== dropdown)
+        unshowDatas();
+};
 
 function printDatas(value)
 {
@@ -25,14 +33,13 @@ function printDatas(value)
         return;
     }
     if (!showSearchDatas(p, value)) {
-        var error = document.getElementById("error");
-        console.log(error);
-        var pinerror = error.getElementsByTagName("p");
-        // pinerror.style.display = "block";
+        let error = document.getElementById("error");
+        error.style.display = "block";
     }
 }
 
 function showAllDatas(p){
+    removeError();
     for (let i = 0; i < p.length; i++) {
         p[i].style.display = "block";
     }
@@ -49,9 +56,8 @@ function showSearchDatas(p, value){
 
         if (value.length >= 1) {
             tmp = tmp.toLowerCase();
-            // console.log("on compare " + "[" + tmp + "]"+ " avec " + "[" + value.toLowerCase() + "]");
             if (tmp === value.toLowerCase()) {
-                console.log(p[i].innerHTML);
+                removeError();
                 p[i].style.display = "block";
                 isOK = true;
             }
@@ -60,4 +66,23 @@ function showSearchDatas(p, value){
         else {p[i].style.display = "none";}
     }
     return isOK;
+}
+
+function removeError() {
+    let error = document.getElementById("error");
+    error.style.display = "none";
+}
+
+function unshowDatas() {
+    let block = document.getElementById("data");
+    let p = block.getElementsByTagName("p");
+    for (let i = 0; i < p.length; i++) {
+        p[i].style.display = "none";
+    }
+    removeError();
+}
+function changeInput(p) {
+    let research = document.getElementById('research');
+    research.value = p.getAttribute("data-value");
+    unshowDatas();
 }

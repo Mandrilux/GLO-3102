@@ -9,20 +9,29 @@
 </head>
 <body>
 
-<div class="wrapp-input">
-  Zone de recherche : <input type="text" id="research" onclick="printDatas(this.value)">
-    <div class="wrapp-data" id="data">
-        <p>   Baptiste </p>
-        <p>  Laurent </p>
-        <p> Patrick </p>
-        <p> Jean </p>
-        <p> pierre</p>
-        <p> bAteau</p>
+<header>
+    <div class="div-logo">
+        <h1>Dropdown Search Javascript</h1>
     </div>
-    <div id="error" class="error">
-        <p> Aucun résultat</p>
+</header>
+
+<section>
+    <h3>Zone de recherche</h3>
+    <div class="wrapp-input" id="wrapp-input">
+      <input type="text" id="research" onclick="printDatas(this.value)">
+        <div class="wrapp-data" id="data">
+            <p data-value="Batiste" onclick="changeInput(this)">Baptiste</p>
+            <p data-value="Laurent" onclick="changeInput(this)">Laurent</p>
+            <p data-value="Patrick" onclick="changeInput(this)">Patrick</p>
+            <p data-value="Jean" onclick="changeInput(this)">Jean</p>
+            <p data-value="Pierre" onclick="changeInput(this)">Pierre</p>
+            <p data-value="Bateau" onclick="changeInput(this)">Bateau</p>
+        </div>
+        <div id="error" class="error">
+            <p> Aucun résultat</p>
+        </div>
     </div>
-</div>
+</section>
 
 
 <footer>
