@@ -36,6 +36,7 @@ function printDatas(value)
     if (!showSearchDatas(p, value)) {
         let error = document.getElementById("error");
         error.style.display = "block";
+        block.style.display = "none";
     }
 }
 
