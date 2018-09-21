@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toastr NodeJS</title>
+    <script type="module" src="./js/main.js"> </script>
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
 </head>
 <body>
@@ -17,13 +18,13 @@
 <section>
 <!-- code here -->
 <div class="wrapp-form">
-  Titre : <input type="text" name="titre"><br>
-  Texte : <input type="text" name="texte"><br>
+  Titre : <input type="text" name="title"><br>
+  Texte : <input type="text" name="text"><br>
     <input type="radio" name="type" value="success"> Success<br>
     <input type="radio" name="type" value="info"> Info<br>
     <input type="radio" name="type" value="warning"> Warning<br>
     <input type="radio" name="type" value="error"> Error<br>
-    <input type="submit" value="Submit">
+    <input type="submit" id="toastButton" value="Submit">
 </div>
 </section>
 
