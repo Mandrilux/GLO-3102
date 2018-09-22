@@ -7,4 +7,31 @@ body
 {
   font-family: Montserrat-Regular;
   background-color: #F2F2F2;
+
+}
+
+
+.success
+{
+  background-color: green;
+}
+
+.info
+{
+  background-color: blue;
+}
+
+.warning
+{
+  background-color: yellow;
+}
+
+.error
+{
+  background-color: red;
+}
+.toast
+{
+  border:1px solid black;
+  margin-top:10px;
 }
