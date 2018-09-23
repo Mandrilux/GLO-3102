@@ -10,28 +10,140 @@ body
 
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #97b8ed;
+  padding: 15px 0;
+}
+header > * > h1 {
+  text-transform: uppercase;
+}
+
+section {
+  margin-top: 90px;
+  width: 80%;
+  margin-left: 10%;
+}
+@media screen and (max-width : 673px){
+  section {
+    margin-top: 120px;
+  }
+}
+@media screen and (max-width : 419px){
+  section {
+    margin-top: 155px;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background: #97b8ed;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.div-logo {
+  width: 80%;
+  text-align: left;
+  margin-left: 10%;
+}
 
 .success
 {
-  background-color: green;
+  background-image: linear-gradient(to bottom right, #52FF01, #639A4A);
 }
 
 .info
 {
-  background-color: blue;
+  background-image: linear-gradient(to bottom right, #019EFF, #4A7C9A);
 }
 
 .warning
 {
-  background-color: yellow;
+  background-image: linear-gradient(to bottom right, #FF6A01, #A86A3E);
 }
 
 .error
 {
-  background-color: red;
+  background-image: linear-gradient(to bottom right, #FF0106, #962023);
+}
+
+#container {
+  position: fixed;
+  top: 5px;
+  right: 30px;
+  width: 30%;
 }
 .toast
 {
-  border:1px solid black;
-  margin-top:10px;
+  border:1px solid gray;
+  padding: 10px;
+  width: 100%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 5px lightgray;
+}
+.toast > .titre {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.toast > .message {
+  color: white;
+}
+
+input {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+#message, #title {
+  height: 1.6em;
+  margin-bottom: 5px;
+  width: 60%;
+}
+@media screen and (max-width : 740px){
+  #message, #title {
+    width: 80%;
+  }
+}
+
+.button {
+  padding: 10px 20px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button.blue {
+  background: #485975;
+  color: white;
+}
+.button.blue:hover {
+  background: white;
+  color: #485975;
+  border: 2px solid #485975;
+}
+
+label {
+  margin-left: 5px;
+  color: #3E3E3E;
+}
+.input-label {
+  margin-left: 0;
+  font-size: 1.2em;
+  display:inline-block;
+  width: 100%;
+}
+input[type=radio] {
+  margin-top: 6px;
 }

@@ -18,7 +18,6 @@ window.onload = function (e)
         }
         let toast = new Toast(title, text, type);
         toast.showInContainer(ToastId);
-        console.log(toast);
         ToastId++;
     }
 

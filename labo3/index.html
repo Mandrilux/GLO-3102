@@ -11,19 +11,19 @@
 
 <header>
     <div class="div-logo">
-        <h1></h1>
+        <h1>Toastr NodeJS</h1>
     </div>
 </header>
 
 <section>
     <div class="wrapp-form">
-        Titre : <input type="text" name="title"><br>
-        Texte : <input type="text" name="text"><br>
-        <input type="radio" name="type" value="success" checked> Success<br>
-        <input type="radio" name="type" value="info"> Info<br>
-        <input type="radio" name="type" value="warning"> Warning<br>
-        <input type="radio" name="type" value="error"> Error<br>
-        <input type="submit" id="toastButton" value="Submit">
+        <label for="title" class="input-label">Tittle : </label><input type="text" name="title" id="title"><br>
+        <label for="message" class="input-label">Message : </label><input type="text" name="text" id="message"><br>
+        <input type="radio" name="type" value="success" id="success" checked><label for="success">Success</label><br>
+        <input type="radio" name="type" value="info" id="info"><label for="info">Info</label><br>
+        <input type="radio" name="type" value="warning" id="warning"><label for="warning">Warning</label><br>
+        <input type="radio" name="type" value="error" id="error"><label for="error">Error</label><br>
+        <input type="submit" id="toastButton" value="Submit" class="button blue">
     </div>
     <div id="container">
 
