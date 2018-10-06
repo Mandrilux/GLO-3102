@@ -44,21 +44,4 @@ export class TodoApiRequest {
             console.log(data);
         });
     }
-    /*showInContainer(id)
-    {
-        let container = document.getElementById("container");
-        container.innerHTML = container.innerHTML + "<div id='" + id +"' class='toast " +this.etype+"'>" +
-            "<p class='titre'>" + this.name +"</p>" +
-            "<p class='message'>" +this.message + "</p> " +
-            "</div>";
-        this.deletein(id);
-    }
-
-    deletein(id){
-        setTimeout(function () {
-            document.getElementById(id).outerHTML = "";
-        }, 3000);
-    }*/
-
-
 }
