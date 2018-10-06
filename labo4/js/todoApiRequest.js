@@ -2,7 +2,7 @@ export class TodoApiRequest {
     constructor()
     {
         this.url = "https://glo3102lab4.herokuapp.com/";
-        this.token = "a";
+        this.token = "";
         this.getUserToken();
     }
 
@@ -17,14 +17,14 @@ export class TodoApiRequest {
         });
     }
 
-    CreateTask(callback){
+    CreateTask(callback, name){
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
         let Init = { method: 'POST',
             headers : headers,
             mode : 'cors',
-            body : JSON.stringify({name: "hi"})
+            body : JSON.stringify({name: name})
         };
         console.log(this.token);
         fetch(this.url+this.token+"/tasks", Init).then(function (response) {
