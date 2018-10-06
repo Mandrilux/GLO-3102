@@ -1,9 +1,16 @@
 import { TodoApiRequest } from './todoApiRequest.js';
 
+let deleteAction = function() {
+    console.log("toto");
+}
+
 export class Todo{
     constructor() {
         this.todoApiRequest = new TodoApiRequest();
+        this.alias = "toto";
     }
+
+
 
     createTodo()
     {
@@ -12,7 +19,7 @@ export class Todo{
         {
             let callback = function(data){
                 let dataparse = JSON.parse(data);
-                document.getElementById("todos").innerHTML +="<br>"+dataparse.name+"<a href='#' id='deleteButton'>Delete</a>";
+                document.getElementById("todos").innerHTML +="<br> Tache : "+dataparse.name+"<a href='#' data-id='"+dataparse.id+"'> Delete </a>";
             };
             this.todoApiRequest.CreateTask(callback, name);
         }
