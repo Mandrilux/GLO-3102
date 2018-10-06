@@ -8,10 +8,14 @@ export class Todo{
     createTodo()
     {
         let name = document.getElementsByName("name")[0].value;
-        console.log(name);
-        let callback = function(data){
-            document.getElementById("todos").innerHTML +="<br>"+data;
-        };
-        this.todoApiRequest.CreateTask(callback, name);
+        if (name.length > 0)
+        {
+            let callback = function(data){
+                let dataparse = JSON.parse(data);
+                document.getElementById("todos").innerHTML +="<br>"+dataparse.name+"<a href='#' id='deleteButton'>Delete</a>";
+            };
+            this.todoApiRequest.CreateTask(callback, name);
+        }
     }
+
 }
