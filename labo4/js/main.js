@@ -1,12 +1,16 @@
-import { TodoApiRequest } from './todo.js';
+import { Todo } from './Todo.js';
 
+
+let todo = new Todo();
 window.onload = function (e)
 {
 
+    let todo = new Todo();
     document.getElementById("loginButton").onclick = function(){
-        console.log("login");
-        let todo = new TodoApiRequest();
+        todo.createTodo();
     }
+
+
    /* let ToastId = 0;
 
     document.getElementById("toastButton").onclick = function(){
