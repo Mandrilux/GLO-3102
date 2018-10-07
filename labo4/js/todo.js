@@ -7,10 +7,7 @@ let deleteAction = function() {
 export class Todo{
     constructor() {
         this.todoApiRequest = new TodoApiRequest();
-        this.alias = "toto";
     }
-
-
 
     createTodo()
     {
