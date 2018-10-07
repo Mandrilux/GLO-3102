@@ -30,9 +30,8 @@ window.onload = function (e)
                 let callback = function(data){
                 };
                 todo.todoApiRequest.UpdateTask(callback, id, nametask);
-                console.log('on update');
+                //console.log('on update');
             }
         }
-        //console.log(typeof evt.target);
     });
 }
