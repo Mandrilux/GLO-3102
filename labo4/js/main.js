@@ -10,9 +10,12 @@ window.onload = function (e)
     let ToastId = 0;
     document.getElementById("loginButton").onclick = function(){
         todo.createTodo();
+        console.log(todo.todoApiRequest.token);
         let toast = new Toast("Ajouter", "Votre tâche à bien été ajoutée", "success");
         toast.showInContainer(ToastId);
         ToastId++;
+
+        //todo.updateTodo();
     }
    var list = document.getElementById('todos');
 
@@ -35,9 +38,7 @@ window.onload = function (e)
             if (name === 'update'){
                 let el = document.getElementById(id);
                 let nametask = el.getElementsByTagName("input")[0].value;
-                let callback = function(data){
-                };
-                todo.todoApiRequest.UpdateTask(callback, id, nametask);
+                todo.todoApiRequest.UpdateTask(id, nametask);
                 let toast = new Toast("Modifier", "Votre tâche à bien été mise à jour", "success");
                 toast.showInContainer(ToastId);
                 ToastId++;

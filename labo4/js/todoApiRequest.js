@@ -43,7 +43,7 @@ export class TodoApiRequest {
         });
     }
 
-    UpdateTask(callback, idTask, name){
+    UpdateTask(idTask, name){
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
@@ -54,18 +54,19 @@ export class TodoApiRequest {
         };
         fetch(this.url+this.token+"/tasks/"+idTask, Init).then(function (response) {
             return response.json();
-        }).then(function (data){
+        });/*.then(function (data){
             callback(JSON.stringify(data));
-        });
+        });*/
     }
 
-    getTask(){
+    GetTask(callback){
         self = this;
         fetch(this.url+this.token+"/tasks", {
-            method: 'get',
+            method: 'GET',
         }).then(function(response){
             return response.json();
         }).then(function (data) {
+            callback(JSON.stringify(data));
         });
     }
 }

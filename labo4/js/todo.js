@@ -18,8 +18,17 @@ export class Todo{
                     "<button class='delete' data-id='"+dataparse.id+"'> Delete </button>" +
                     "</div>";
             };
-            this.todoApiRequest.CreateTask(callback, name);
+            this.todoApiRequest.CreateTask(callback, name)
+
         }
+    }
+
+    updateTodo() {
+        let callback = function(data){
+            let dataparse = JSON.parse(data);
+            console.log(dataparse);
+        };
+        this.todoApiRequest.GetTask(callback);
     }
 
 }
