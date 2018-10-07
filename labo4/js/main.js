@@ -39,6 +39,7 @@ window.onload = function (e)
                 let el = document.getElementById(id);
                 let nametask = el.getElementsByTagName("input")[0].value;
                 todo.todoApiRequest.UpdateTask(id, nametask);
+                el.getElementsByTagName("input")[0].setAttribute('value',nametask);
                 let toast = new Toast("Modifier", "Votre tâche à bien été mise à jour", "success");
                 toast.showInContainer(ToastId);
                 ToastId++;
