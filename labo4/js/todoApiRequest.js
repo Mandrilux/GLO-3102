@@ -26,7 +26,6 @@ export class TodoApiRequest {
             mode : 'cors',
             body : JSON.stringify({name: name})
         };
-        console.log(this.token);
         fetch(this.url+this.token+"/tasks", Init).then(function (response) {
             return response.json();
         }).then(function (data){
@@ -41,7 +40,6 @@ export class TodoApiRequest {
         }).then(function(response){
             return response.json();
         }).then(function (data) {
-            console.log(data);
         });
     }
 
@@ -54,7 +52,6 @@ export class TodoApiRequest {
             mode : 'cors',
             body : JSON.stringify({name: name})
         };
-        console.log(this.token);
         fetch(this.url+this.token+"/tasks/"+idTask, Init).then(function (response) {
             return response.json();
         }).then(function (data){
@@ -69,7 +66,6 @@ export class TodoApiRequest {
         }).then(function(response){
             return response.json();
         }).then(function (data) {
-            console.log(data);
         });
     }
 }
