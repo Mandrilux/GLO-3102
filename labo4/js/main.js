@@ -14,16 +14,19 @@ window.onload = function (e)
     list.addEventListener('click', function(evt){
 
         let id = evt.target.getAttribute("data-id");
-        if (id !== null) {
-            console.log("ID = "+ id);
-            var el = document.getElementById(id);
-            el.remove();
-
-
-            let callback = function(data){
-
-            };
-            todo.todoApiRequest.DeleteTask(callback, id);
+        let name = evt.target.getAttribute("class");
+        if (id !== null && (name === 'delete' || name === 'update') ) {
+            if (name === 'delete') {
+                console.log("ID = "+ id);
+                var el = document.getElementById(id);
+                el.remove();
+                let callback = function(data){
+                };
+                todo.todoApiRequest.DeleteTask(callback, id);
+            }
+            if (name === 'update'){
+                console.log('on update');
+            }
         }
         //console.log(typeof evt.target);
     });
