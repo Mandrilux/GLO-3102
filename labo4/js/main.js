@@ -18,6 +18,12 @@ window.onload = function (e)
             console.log("ID = "+ id);
             var el = document.getElementById(id);
             el.remove();
+
+
+            let callback = function(data){
+
+            };
+            todo.todoApiRequest.DeleteTask(callback, id);
         }
         //console.log(typeof evt.target);
     });
