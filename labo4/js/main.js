@@ -10,9 +10,7 @@ window.onload = function (e)
     let ToastId = 0;
     document.getElementById("loginButton").onclick = function(){
         let flag = todo.createTodo();
-        console.log(flag);
         console.log(todo.todoApiRequest.token);
-
         if (flag == 1){
             let toast = new Toast("Ajouter", "Votre tâche à bien été ajoutée", "success");
             toast.showInContainer(ToastId);
@@ -23,8 +21,6 @@ window.onload = function (e)
             toast.showInContainer(ToastId);
             ToastId++;
         }
-
-        //todo.updateTodo();
     }
    var list = document.getElementById('todos');
 
