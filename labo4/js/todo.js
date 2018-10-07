@@ -16,7 +16,7 @@ export class Todo{
         {
             let callback = function(data){
                 let dataparse = JSON.parse(data);
-                document.getElementById("todos").innerHTML +="<div id='"+dataparse.id+"'> Tache : <input type='text' name='task' value='"+dataparse.name+"'><a href='#' data-id='"+dataparse.id+"'> Delete </a></div>";
+                document.getElementById("todos").innerHTML +="<div id='"+dataparse.id+"'> Tache : <input type='text' name='task' value='"+dataparse.name+"'><button type='button'>Modifier</button><button data-id='"+dataparse.id+"'> Delete </button></div>";
             };
             this.todoApiRequest.CreateTask(callback, name);
         }

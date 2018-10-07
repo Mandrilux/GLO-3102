@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/js/main.js" description="window.onload = function (e)" line="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c3fa73c-4f90-471d-8c8a-b608638d6a7b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3c3fa73c-4f90-471d-8c8a-b608638d6a7b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,13 +55,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="211" />
-          <entry key="js" value="2670" />
+          <entry key="js" value="2693" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="211" />
-          <entry key="JavaScript" value="2670" />
+          <entry key="JavaScript" value="2693" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.actions" />
@@ -92,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/js/Todo.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="18" column="156" selection-start-line="18" selection-start-column="156" selection-end-line="18" selection-end-column="156" />
+              <caret line="18" column="202" selection-start-line="18" selection-start-column="202" selection-end-line="18" selection-end-column="202" />
             </state>
           </provider>
         </entry>
@@ -218,12 +216,12 @@
       <option name="presentableId" value="Default" />
       <updated>1538833005905</updated>
       <workItem from="1538833009111" duration="12220000" />
-      <workItem from="1538919719592" duration="291000" />
+      <workItem from="1538919719592" duration="500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12511000" />
+    <option name="totallyTimeSpent" value="12720000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="41" width="1680" height="957" extended-state="0" />
@@ -344,7 +342,7 @@
     <entry file="file://$PROJECT_DIR$/js/Todo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="156" selection-start-line="18" selection-start-column="156" selection-end-line="18" selection-end-column="156" />
+          <caret line="18" column="202" selection-start-line="18" selection-start-column="202" selection-end-line="18" selection-end-column="202" />
         </state>
       </provider>
     </entry>
