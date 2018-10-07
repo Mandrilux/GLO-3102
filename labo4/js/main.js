@@ -16,6 +16,8 @@ window.onload = function (e)
         let id = evt.target.getAttribute("data-id");
         if (id !== null) {
             console.log("ID = "+ id);
+            var el = document.getElementById(id);
+            el.remove();
         }
         //console.log(typeof evt.target);
     });
