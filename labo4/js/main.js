@@ -28,9 +28,7 @@ window.onload = function (e)
 
                 let el = document.getElementById(id);
                 el.remove();
-                let callback = function(data){
-                };
-                todo.todoApiRequest.DeleteTask(callback, id);
+                todo.todoApiRequest.DeleteTask(id);
                 let toast = new Toast("Supprimer", "Votre tâche à bien été supprimée", "success");
                 toast.showInContainer(ToastId);
                 ToastId++;

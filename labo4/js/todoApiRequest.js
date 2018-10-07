@@ -33,14 +33,16 @@ export class TodoApiRequest {
         });
     }
 
-    DeleteTask(callback, idTask) {
+    DeleteTask(idTask) {
         self = this;
         fetch(this.url+this.token+"/tasks/"+idTask, {
             method: 'delete',
-        }).then(function(response){
+        });
+
+        /*    .then(function(response){
             return response.json();
         }).then(function (data) {
-        });
+        });*/
     }
 
     UpdateTask(idTask, name){
