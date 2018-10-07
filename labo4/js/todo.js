@@ -19,8 +19,9 @@ export class Todo{
                     "</div>";
             };
             this.todoApiRequest.CreateTask(callback, name)
-
+            return 1;
         }
+        return 0;
     }
 
     updateTodo() {

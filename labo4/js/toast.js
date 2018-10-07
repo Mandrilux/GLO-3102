@@ -8,7 +8,6 @@ export class Toast {
 
     showInContainer(id)
     {
-        console.log("test");
         let container = document.getElementById("container-alert");
         container.innerHTML = container.innerHTML + "<div id='" + id +"' class='toast " +this.etype+"'>" +
             "<p class='titre'>" + this.name +"</p>" +

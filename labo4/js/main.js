@@ -9,11 +9,20 @@ window.onload = function (e)
     let todo = new Todo();
     let ToastId = 0;
     document.getElementById("loginButton").onclick = function(){
-        todo.createTodo();
+        let flag = todo.createTodo();
+        console.log(flag);
         console.log(todo.todoApiRequest.token);
-        let toast = new Toast("Ajouter", "Votre tâche à bien été ajoutée", "success");
-        toast.showInContainer(ToastId);
-        ToastId++;
+
+        if (flag == 1){
+            let toast = new Toast("Ajouter", "Votre tâche à bien été ajoutée", "success");
+            toast.showInContainer(ToastId);
+            ToastId++;
+        }
+        else{
+            let toast = new Toast("Ajouter", "Le nom est incorrect", "error");
+            toast.showInContainer(ToastId);
+            ToastId++;
+        }
 
         //todo.updateTodo();
     }

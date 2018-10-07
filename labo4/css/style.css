@@ -137,6 +137,10 @@ footer {
   background-image: linear-gradient(to bottom right, #52FF01, #639A4A);
 }
 
+.error
+{
+  background-image: linear-gradient(to bottom right, red, red);
+}
 #container-alert {
   position: fixed;
   top: 5px;
