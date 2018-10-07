@@ -44,6 +44,24 @@ export class TodoApiRequest {
             console.log(data);
         });
     }
+
+    UpdateTask(callback, idTask, name){
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        let Init = { method: 'PUT',
+            headers : headers,
+            mode : 'cors',
+            body : JSON.stringify({name: name})
+        };
+        console.log(this.token);
+        fetch(this.url+this.token+"/tasks/"+idTask, Init).then(function (response) {
+            return response.json();
+        }).then(function (data){
+            callback(JSON.stringify(data));
+        });
+    }
+
     getTask(){
         self = this;
         fetch(this.url+this.token+"/tasks", {

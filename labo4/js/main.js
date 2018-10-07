@@ -17,14 +17,19 @@ window.onload = function (e)
         let name = evt.target.getAttribute("class");
         if (id !== null && (name === 'delete' || name === 'update') ) {
             if (name === 'delete') {
-                console.log("ID = "+ id);
-                var el = document.getElementById(id);
+
+                let el = document.getElementById(id);
                 el.remove();
                 let callback = function(data){
                 };
                 todo.todoApiRequest.DeleteTask(callback, id);
             }
             if (name === 'update'){
+                let el = document.getElementById(id);
+                let nametask = el.getElementsByTagName("input")[0].value;
+                let callback = function(data){
+                };
+                todo.todoApiRequest.UpdateTask(callback, id, nametask);
                 console.log('on update');
             }
         }
