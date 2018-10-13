@@ -1,4 +1,4 @@
-import { TodoApiRequest } from './API/todoApiRequest';
+import { TodoApiRequest } from '../API/todoApiRequest';
 
 export class TodoList
 {

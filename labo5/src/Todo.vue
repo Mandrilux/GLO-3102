@@ -17,7 +17,7 @@
         name: 'Todo'
     }
 
-    import { TodoList } from './todo.js';
+    import { TodoList } from './components/todo.js';
     import { Toast } from './components/Toast.js';
 
     window.onload = function (e)
