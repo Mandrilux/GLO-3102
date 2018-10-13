@@ -18,6 +18,7 @@
     }
 
     import { TodoList } from './todo.js';
+    import { Toast } from './components/Toast.js';
 
     window.onload = function (e)
     {
@@ -26,7 +27,7 @@
         document.getElementById("loginButton").onclick = function(){
             let flag = todo.createTodo();
             console.log(todo.todoApiRequest.token);
-            /*if (flag == 1){
+            if (flag == 1){
                 let toast = new Toast("Ajouter", "Votre tâche à bien été ajoutée", "success");
                 toast.showInContainer(ToastId);
                 ToastId++;
@@ -35,7 +36,7 @@
                 let toast = new Toast("Ajouter", "Le nom est incorrect", "error");
                 toast.showInContainer(ToastId);
                 ToastId++;
-            }*/
+            }
         }
 
         var list = document.getElementById('todos');
@@ -50,18 +51,18 @@
                     let el = document.getElementById(id);
                     el.remove();
                     todo.todoApiRequest.DeleteTask(id);
-                   // let toast = new Toast("Supprimer", "Votre tâche à bien été supprimée", "success");
-                  //  toast.showInContainer(ToastId);
-                  //  ToastId++;
+                     let toast = new Toast("Supprimer", "Votre tâche à bien été supprimée", "success");
+                     toast.showInContainer(ToastId);
+                      ToastId++;
                 }
                 if (name === 'update'){
                     let el = document.getElementById(id);
                     let nametask = el.getElementsByTagName("input")[0].value;
                     todo.todoApiRequest.UpdateTask(id, nametask);
                     el.getElementsByTagName("input")[0].setAttribute('value',nametask);
-                   // let toast = new Toast("Modifier", "Votre tâche à bien été mise à jour", "success");
-                  //  toast.showInContainer(ToastId);
-                   // ToastId++;
+                     let toast = new Toast("Modifier", "Votre tâche à bien été mise à jour", "success");
+                      toast.showInContainer(ToastId);
+                    ToastId++;
                 }
             }
         });
