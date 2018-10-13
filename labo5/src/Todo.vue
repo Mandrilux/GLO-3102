@@ -16,6 +16,33 @@
     export default {
         name: 'Todo'
     }
+
+    import { TodoList } from './todo.js';
+
+    window.onload = function (e)
+    {
+        let todo = new TodoList();
+        let ToastId = 0;
+        document.getElementById("loginButton").onclick = function(){
+            let flag = todo.createTodo();
+            console.log(todo.todoApiRequest.token);
+            /*if (flag == 1){
+                let toast = new Toast("Ajouter", "Votre tâche à bien été ajoutée", "success");
+                toast.showInContainer(ToastId);
+                ToastId++;
+            }
+            else{
+                let toast = new Toast("Ajouter", "Le nom est incorrect", "error");
+                toast.showInContainer(ToastId);
+                ToastId++;
+            }*/
+        }
+
+    }
+
+
+
+
 </script>
 
 
