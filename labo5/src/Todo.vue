@@ -20,17 +20,7 @@
 
 
 <style>
-    *
-    {
-        margin: 0;
-    }
 
-    body
-    {
-        font-family: Montserrat-Regular;
-        background-color: #F2F2F2;
-
-    }
 
     section {
         margin-top: 90px;
@@ -42,7 +32,7 @@
             margin-left: 5%;
         }
     }
-    
+
     .div-logo {
         width: 80%;
         text-align: left;
