@@ -1,13 +1,23 @@
 <template>
     <section id="wrapp-geolocation">
-        <div @click="edit">FOO</div>
+        <input v-model="city" id="city" type="text" name="city" placeholder="Ville...">
+        <input id="submitButton" type="submit" value="Valider" v-on:click="save(city)">
     </section>
 </template>
 
 
 <script>
     export default {
-        name: 'Geoloc'
+        methods: {
+            save: function(city){
+                console.log(city);
+            }
+        },
+        data() {
+            return {
+                city: '',
+            };
+        }
     }
 
     //import { TodoList } from './components/todo.js';

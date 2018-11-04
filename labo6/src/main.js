@@ -7,12 +7,17 @@ new Vue({
     render: h => h(Header)
 }).$mount('#header')
 
+
 new Vue({
+    render: h => h(Geo)
+}).$mount('#geoloc')
+
+/*new Vue({
     el: '#geoloc',
     data: {
         lat: '',
         lon: '',
-        email: '',
+        city: ''
     },
     render: h => h(Geo),
     methods: {
@@ -36,7 +41,7 @@ new Vue({
         this.geolocation();
     },
 
-})
+})*/
 
 
 new Vue({
