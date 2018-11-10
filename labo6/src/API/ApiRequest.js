@@ -1,23 +1,37 @@
-export class TodoApiRequest {
+export class ApiRequest {
     constructor()
     {
-        this.url = "https://glo3102lab4.herokuapp.com/";
-        this.token = "";
-        this.getUserToken();
+        this.url = "http://api.openweathermap.org/";
+        this.token = "f90ec472a8dcc0ebf6dc0e9b8a326243";
+        this.city = ""
     }
 
-    getUserToken(){
-        self = this;
-        fetch(this.url+"users", {
-            method: 'post',
+    getCity(lat, lon){
+        let url = this.url+"data/2.5/weather?lat="+lat+"&lon="+lon+"&APPID="+this.token;
+        console.log(url)
+        fetch(url , {
+            method: 'GET',
         }).then(function(response){
             return response.json();
         }).then(function (data) {
-            self.token = data.id
+            console.log(JSON.stringify(data));
+        });
+    }
+    getByCity(callback)
+    {
+        let url = this.url+"data/2.5/forecast?q="+this.city + "&APPID="+this.token;
+        console.log(url)
+        fetch(url , {
+            method: 'GET',
+        }).then(function(response){
+            return response.json();
+        }).then(function (data) {
+            callback(JSON.stringify(data));
         });
     }
 
-    CreateTask(callback, name){
+
+   /* CreateTask(callback, name){
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
 
@@ -63,5 +77,5 @@ export class TodoApiRequest {
         }).then(function (data) {
             callback(JSON.stringify(data));
         });
-    }
+    }*/
 }
