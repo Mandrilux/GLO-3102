@@ -38,9 +38,10 @@ app.delete('/:id/tasks/:task', function (req, res) {
     console.log(tasks);
     let flag = -1;
     let id = req.params.task;
+    let userId = req.params.id;
 
     for (let i = 0; i < tasks.length; i++){
-        if (id == tasks[i].taskId) {
+        if (id == tasks[i].taskId && userId == tasks[i].userId) {
             flag = i;
         }
     }
