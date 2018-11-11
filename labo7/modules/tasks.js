@@ -14,10 +14,12 @@ exports.getId =  function (req, res) {
 
 exports.getTasksByID = function (req, res) {
     let userId = req.params.id;
+    let tmp;
     taskstmp = [];
     for (let i = 0; i < tasks.length; i++){
         if (userId == tasks[i].userId) {
-            taskstmp.push(tasks[i]);
+            tmp = {id:tasks[i].taskId, name: tasks[i].name}
+            taskstmp.push(tmp);
         }
     }
     res.send({task:taskstmp});
@@ -35,7 +37,6 @@ exports.addTasks = function (req, res) {
 exports.deleteTasks = function (req, res) {
     let flag = -1;
     let id = req.params.task;
-
     let userId = req.params.id;
 
     for (let i = 0; i < tasks.length; i++){
@@ -45,9 +46,12 @@ exports.deleteTasks = function (req, res) {
     }
     if (flag != -1){
         tasks.splice(flag, 1);
-        console.log(tasks)
+        res.end();
     }
-    res.send({});
+    else
+    {
+        res.status(400).send("Task with id '" + id + "' doesn't exist.");
+    }
 };
 
 exports.updateTasks = function (req, res) {
