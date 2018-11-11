@@ -33,9 +33,22 @@ app.get('/:id', function (req, res) {
     res.send(id);
 });
 
+//on delete la tache
+app.delete('/:id/tasks/:task', function (req, res) {
+    console.log(tasks);
+    let flag = -1;
+    let id = req.params.task;
 
-app.delete('/:id/tasks/:task'), function (req, res) {
-    res.send({id:"ok", name: "ok"});
+    for (let i = 0; i < tasks.length; i++){
+        if (id == tasks[i].taskId) {
+            flag = i;
+        }
+    }
+    if (flag != -1){
+        tasks.splice(flag, 1);
+        console.log(tasks)
+    }
+    res.send({});
 });
 
 app.listen(8080, '0.0.0.0')
