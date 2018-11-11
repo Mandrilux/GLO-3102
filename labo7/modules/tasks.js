@@ -20,7 +20,7 @@ exports.getTasksByID = function (req, res) {
             taskstmp.push(tasks[i]);
         }
     }
-    res.send(taskstmp);
+    res.send({task:taskstmp});
 };
 
 exports.addTasks = function (req, res) {
