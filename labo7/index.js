@@ -2,6 +2,8 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let cors = require('cors');
 let app = express();
+const server = require('./server');
+
 
 let userId = 0;
 let taskId = 0;
@@ -67,5 +69,5 @@ app.get('/:id/tasks', function (req, res) {
 });
 
 
-app.listen(8080, '0.0.0.0')
-console.log('Listening on port 8080....');
+
+server.start(app);
