@@ -34,5 +34,9 @@ app.get('/:id', function (req, res) {
 });
 
 
+app.delete('/:id/tasks/:task'), function (req, res) {
+    res.send({id:"ok", name: "ok"});
+});
+
 app.listen(8080, '0.0.0.0')
 console.log('Listening on port 8080....');
