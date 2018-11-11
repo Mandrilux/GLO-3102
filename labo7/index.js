@@ -52,5 +52,20 @@ app.delete('/:id/tasks/:task', function (req, res) {
     res.send({});
 });
 
+// on get les taches
+
+app.get('/:id/tasks', function (req, res) {
+    let userId = req.params.id;
+    taskstmp = [];
+    for (let i = 0; i < tasks.length; i++){
+        if (userId == tasks[i].userId) {
+            taskstmp.push(tasks[i]);
+        }
+    }
+    console.log(tasks);
+    res.send(taskstmp);
+});
+
+
 app.listen(8080, '0.0.0.0')
 console.log('Listening on port 8080....');
