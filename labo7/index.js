@@ -22,5 +22,5 @@ app.get('/:id', tasksManager.getId);
 app.get('/:id/tasks', tasksManager.getTasksByID);
 app.post('/:id/tasks', tasksManager.addTasks);
 app.delete('/:id/tasks/:task', tasksManager.deleteTasks);
-
+app.put('/:id/tasks/:task', tasksManager.updateTasks);
 server.start(app);

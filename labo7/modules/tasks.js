@@ -49,3 +49,21 @@ exports.deleteTasks = function (req, res) {
     }
     res.send({});
 };
+
+exports.updateTasks = function (req, res) {
+    let flag = -1;
+    let id = req.params.task;
+    let name = req.body.name;
+
+    let userId = req.params.id;
+    let i;
+    for (i = 0; i < tasks.length; i++){
+        if (id == tasks[i].taskId && userId == tasks[i].userId) {
+            flag = i;
+        }
+    }
+    if (flag != -1){
+        tasks[flag].name = name;
+    }
+    res.send({});
+};
