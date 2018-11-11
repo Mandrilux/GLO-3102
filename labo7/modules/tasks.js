@@ -68,6 +68,10 @@ exports.updateTasks = function (req, res) {
     }
     if (flag != -1){
         tasks[flag].name = name;
+        res.send({id:tasks[flag].taskId, name: tasks[flag].name});
     }
-    res.send({});
+    else
+    {
+        res.status(400).send("Task with id '" + id + "' doesn't exist.");
+    }
 };
