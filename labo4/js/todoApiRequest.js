@@ -1,7 +1,8 @@
 export class TodoApiRequest {
     constructor()
     {
-        this.url = "https://glo3102lab4.herokuapp.com/";
+        //this.url = "https://glo3102lab4.herokuapp.com/";
+        this.url = "http://localhost:8080/";
         this.token = "";
         this.getUserToken();
     }
