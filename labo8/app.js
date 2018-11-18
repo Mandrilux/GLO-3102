@@ -21,5 +21,9 @@ app.get('/login', function(req, res){
     res.sendfile("client/login.html");
 });
 
+app.post('/login', function(req, res){
+    userId++;
+    res.send({id:userId});
+});
 
 server.start(app);
