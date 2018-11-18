@@ -4,8 +4,6 @@ let cors = require('cors');
 let app = express();
 
 const server = require('./modules/server');
-const tasksManager = require('./modules/tasks');
-
 
 let corsOptions = {
     origin : '*',
@@ -15,3 +13,5 @@ let corsOptions = {
 
 app.use(bodyParser());
 app.use(cors(corsOptions));
+
+server.start(app);
