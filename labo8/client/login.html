@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>LOGIN TP8</title>
-
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 </head>
 <body>
   <h1>Zone sécurisé </h1>
@@ -43,7 +43,8 @@
       .then(function(response){
         return response.json();
       }).then(function(response){
-        console.log("ok4");
+        Cookies.set('token', response.id)
+        window.location.href = './userprofile';
       });
     }
 

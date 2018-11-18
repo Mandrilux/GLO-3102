@@ -19,7 +19,6 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 
 app.get('/login', function(req, res){
-    let id = req.param.id;
     res.sendfile("client/login.html");
 });
 
@@ -30,6 +29,29 @@ app.post('/users', function(req, res){
   users.push(userStorage);
   userId++;
   res.status(200).send({user:users});
+});
+
+app.get('/userprofile', function(req, res){
+  const token = req.cookies.token;
+  console.log(token);
+
+  if (token !== undefined){
+    console.log("login")
+    res.sendfile("client/userprofile.html");
+  }
+  else{
+    console.log("not login")
+    res.redirect("/login");
+  }
+});
+
+
+app.get('/', function(req, res){
+  res.redirect("/login");
+});
+
+app.get('/logout', function(req, res){
+      res.sendfile("client/logout.html");
 });
 
 app.post('/login', function(req, res){
