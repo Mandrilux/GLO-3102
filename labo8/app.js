@@ -22,8 +22,17 @@ app.get('/login', function(req, res){
 });
 
 app.post('/login', function(req, res){
-    userId++;
-    res.send({id:userId});
+    let user = req.body.user
+    let password = req.body.password
+
+    if (user === "baptiste" && password === "test"){
+      userId++;
+      res.status(200).send({id:userId});
+    }
+    else{
+      console.log("KO");
+      res.status(401).render();
+    }
 });
 
 server.start(app);

@@ -3,23 +3,56 @@
 <head>
   <meta charset="utf-8">
   <title>LOGIN TP8</title>
+
 </head>
 <body>
-<form action="action_page.php">
+<form>
   <div>
     <div>
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" id="user" name="uname" required>
     </div>
     <div>
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" id="password" name="psw" required>
     </div>
     <div>
-    <button type="submit">Login</button>
+    <button type="submit" class="btn-test">Login</button>
     </div>
   </div>
-
 </form>
 </body>
+
+<script>
+
+    function callLogin(user, password)
+    {
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      let myInit = {
+         method: 'POST',
+         headers: myHeaders,
+         mode : 'cors',
+         cache: 'default',
+         body : JSON.stringify({user: user, password: password})
+       };
+
+      fetch('/login', myInit)
+      .then(function(response){
+        return response.json();
+      }).then(function(response){
+        console.log("ok4");
+      });
+    }
+
+    let button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        var user = document.getElementById("user").value
+        var password = document.getElementById("password").value
+        callLogin(user, password)
+      });
+
+
+</script>
 </html>
