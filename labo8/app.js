@@ -33,9 +33,9 @@ app.post('/users', function(req, res){
 
 app.get('/userprofile', function(req, res){
   const token = req.cookies.token;
-  console.log(token);
+  console.log("le token est " + token);
 
-  if (token !== undefined){
+  if (token !== 'undefined' && token ) {
     console.log("login")
     res.sendfile("client/userprofile.html");
   }
@@ -44,7 +44,6 @@ app.get('/userprofile', function(req, res){
     res.redirect("/login");
   }
 });
-
 
 app.get('/', function(req, res){
   res.redirect("/login");
