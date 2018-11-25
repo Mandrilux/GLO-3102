@@ -7,6 +7,9 @@
 </head>
 
 <body>
+  <div id="wrapp-message">
+
+  </div>
   <input type="text" name="message" id="message">
   <button id="button"> Envoyer</button>
 </body>
@@ -19,6 +22,11 @@
   });
   socket.on('message', function(msg){
     console.log(msg);
+    var node = document.createElement("p");
+    var textnode = document.createTextNode(msg);
+    node.appendChild(textnode);
+    document.getElementById("wrapp-message").appendChild(node);
+
   });
   document.getElementById("button").onclick = function(){
     let mess = document.getElementById("message").value
