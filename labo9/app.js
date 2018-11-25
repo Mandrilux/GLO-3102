@@ -12,9 +12,9 @@ let corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get('/', function(req, res)){
+app.get('/', function(req, res){
   let id = req.params.id;
   res.sendfile("client/index.html");
-}
+});
 
 serverDistrib.start(app);
