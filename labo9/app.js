@@ -1,4 +1,4 @@
-const serverDistrib = require('./modules/server');
+
 let express = require('express');
 let app = express();
 let server = require('http').createServer(app);
@@ -17,4 +17,15 @@ app.get('/', function(req, res){
   res.sendfile("client/index.html");
 });
 
-serverDistrib.start(app);
+io.on('connection', function(client){
+  console.log("Client connected...");
+  client.on('join', function(data){
+    client.emit('message', 'HELLO FROM SERVER');
+  });
+  client.on('message', function(data){
+    client.broadcast.emit('message', data);
+  });
+});
+
+server.listen(8080);
+console.log('Listening on port 8080....');
