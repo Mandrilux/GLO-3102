@@ -6,12 +6,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
 </head>
   <style>
+  .message
+  {
+      background-color:white;
+      padding:10px;
+  }
 #wrapp-send-text{
   display:none;
 }
 
 #wrapp-message{
   display:none;
+  border:1px solid black;
+  padding-left : 20px;
+  padding-right : 20px;
+  background-color: gray;
+}
+
+#wrapp-send-text{
+    margin-top:20px;
+    text-align: center;
 }
 </style>
 
@@ -34,15 +48,17 @@
   let user = "guest"
 
   let socket = io.connect('http://localhost:8080');
-  socket.on('connect', function(data){
+/*  socket.on('connect', function(data){
     socket.emit('join', 'Hello world from client');
-  });
+  });*/
 
   function addText(msg){
     var node = document.createElement("p");
     var textnode = document.createTextNode(msg);
+    node.setAttribute("class", "message");
     node.appendChild(textnode);
     document.getElementById("wrapp-message").appendChild(node);
+
   }
 
 
@@ -61,6 +77,7 @@
       document.getElementById("wrapp-send-text").style.display = "block";
       document.getElementById("wrapp-message").style.display = "block";
       document.getElementById("wrapp-send-pseudo").style.display = "none";
+      socket.emit('message', user + " viens de se connecter au serveur");
       addText(user + " viens de se connecter au serveur");
   };
 </script>
