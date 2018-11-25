@@ -5,31 +5,62 @@
   <title>Client</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
 </head>
+  <style>
+#wrapp-send-text{
+  display:none;
+}
+
+#wrapp-message{
+  display:none;
+}
+</style>
 
 <body>
-  <div id="wrapp-message">
-
+  <div id="wrapp-send-pseudo">
+  <input type="text" name="pseudo" id="pseudo" placeholder="votre pseudo">
+  <button id="button-pseudo" > Valider le pseudo </button>
   </div>
-  <input type="text" name="message" id="message">
-  <button id="button"> Envoyer</button>
+  <div id="wrapp-message">
+  </div>
+  <div id="wrapp-send-text">
+    <input type="text" name="message" id="message">
+    <button id="button"> Envoyer</button>
+  </div>
 </body>
 
 </html>
 <script>
+
+  let user = "guest"
+
   let socket = io.connect('http://localhost:8080');
   socket.on('connect', function(data){
     socket.emit('join', 'Hello world from client');
   });
-  socket.on('message', function(msg){
-    console.log(msg);
+
+  function addText(msg){
     var node = document.createElement("p");
     var textnode = document.createTextNode(msg);
     node.appendChild(textnode);
     document.getElementById("wrapp-message").appendChild(node);
+  }
 
+
+  socket.on('message', function(msg){
+    console.log(msg);
+     addText(msg);
   });
   document.getElementById("button").onclick = function(){
     let mess = document.getElementById("message").value
-    socket.emit('message', mess);
+    socket.emit('message', user + " : "+ mess);
+     addText( user + " : "+ mess);
+  };
+
+  document.getElementById("button-pseudo").onclick = function(){
+      user  = document.getElementById("pseudo").value
+      document.getElementById("wrapp-send-text").style.display = "block";
+      document.getElementById("wrapp-message").style.display = "block";
+      document.getElementById("wrapp-send-pseudo").style.display = "none";
+      addText(user + " viens de se connecter au serveur");
   };
 </script>

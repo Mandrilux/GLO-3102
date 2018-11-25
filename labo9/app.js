@@ -20,7 +20,7 @@ app.get('/', function(req, res){
 io.on('connection', function(client){
   console.log("Client connected...");
   client.on('join', function(data){
-    client.emit('message', 'HELLO FROM SERVER');
+    //  client.emit('message', 'Un utilisateur viens de se connecter au serveur');
   });
   client.on('message', function(data){
     console.log(data);
