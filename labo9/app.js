@@ -23,6 +23,7 @@ io.on('connection', function(client){
     client.emit('message', 'HELLO FROM SERVER');
   });
   client.on('message', function(data){
+    console.log(data);
     client.broadcast.emit('message', data);
   });
 });

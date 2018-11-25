@@ -7,7 +7,8 @@
 </head>
 
 <body>
-<button id="button"> Say hi</button>
+  <input type="text" name="message" id="message">
+  <button id="button"> Envoyer</button>
 </body>
 
 </html>
@@ -20,6 +21,7 @@
     console.log(msg);
   });
   document.getElementById("button").onclick = function(){
-    socket.emit('message', 'hi');
+    let mess = document.getElementById("message").value
+    socket.emit('message', mess);
   };
 </script>
