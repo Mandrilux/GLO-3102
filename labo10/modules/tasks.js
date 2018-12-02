@@ -1,19 +1,19 @@
-let userId = 0;
-let taskId = 0;
-let tasks = [];
 let  mongoose = require('mongoose');
 mongoose.connect('mongodb://backup.baptisteheraud.com/TP10');
 
-var User = mongoose.model('User', { id: Number });
+var User = mongoose.model('User', { roles: String });
+var Task = mongoose.model('Task', { userId: String, name: String });
 
 exports.getUser =  function (req, res) {
-  userId++;
-  var Guest = new User({ id: userId});
-    Guest.save(function (err) {
-       if (err) // ...
-           console.log('erreur');
-        });
-    res.send({id:userId});
+  var Guest = new User({ roles: "User"});
+    Guest.save()
+    .then(doc => {
+        console.log(doc);
+        res.send({id:doc['_id']});
+    })
+    .catch(err => {
+      res.status(400).send({erreur:"impossible d'enregister dans la base de données"});
+    })
 };
 
 exports.getId =  function (req, res) {
@@ -23,44 +23,60 @@ exports.getId =  function (req, res) {
 
 exports.getTasksByID = function (req, res) {
     let userId = req.params.id;
-    let tmp;
-    taskstmp = [];
-    for (let i = 0; i < tasks.length; i++){
-        if (userId == tasks[i].userId) {
-            tmp = {id:tasks[i].taskId, name: tasks[i].name}
-            taskstmp.push(tmp);
+
+    Task.find({
+      userId: userId
+    })
+    .then(doc => {
+      console.log(doc)
+      taskstmp = [];
+      for (let i = 0; i < doc.length; i++){
+        tmp = {id:doc[i]._id, name: doc[i].name}
+        taskstmp.push(tmp);
+
         }
-    }
-    res.send({task:taskstmp});
+          res.send({task:taskstmp});
+    })
+    .catch(err=> {
+      res.status(400).send({erreur:"impossible de lire dans la base de données"});
+    })
 };
 
 exports.addTasks = function (req, res) {
-    let name = req.body.name;
-    let id = req.params.id;
-    taskId++;
-    tasks.push({userId:id, taskId: taskId, name: name});
-    res.send({id:taskId, name: name});
+  let name = req.body.name;
+  let id = req.params.id;
+
+  var TaskValue = new Task({ userId: id, name: name});
+    TaskValue.save()
+    .then(doc => {
+        console.log(doc);
+        res.send({id:doc['_id'], name: name});
+    })
+    .catch(err => {
+      res.status(400).send({erreur:"impossible d'enregister dans la base de données"});
+    })
 };
 
 
 exports.deleteTasks = function (req, res) {
-    let flag = -1;
+
     let id = req.params.task;
     let userId = req.params.id;
 
-    for (let i = 0; i < tasks.length; i++){
-        if (id == tasks[i].taskId && userId == tasks[i].userId) {
-            flag = i;
+    Task.findOneAndRemove({
+      _id :id,
+      userId: userId
+    })
+    .then(doc => {
+        console.log(doc);
+        if (doc == null){
+          res.status(400).send("Task with id '" + id + "' doesn't exist.");
         }
-    }
-    if (flag != -1){
-        tasks.splice(flag, 1);
         res.end();
-    }
-    else
-    {
-        res.status(400).send("Task with id '" + id + "' doesn't exist.");
-    }
+    })
+    .catch(err => {
+      res.status(400).send({erreur:"impossible d'enregister dans la base de données"});
+    })
 };
 
 exports.updateTasks = function (req, res) {
