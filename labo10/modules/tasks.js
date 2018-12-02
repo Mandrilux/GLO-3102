@@ -2,23 +2,17 @@ let userId = 0;
 let taskId = 0;
 let tasks = [];
 let  mongoose = require('mongoose');
-mongoose.connect('mongodb://backup.baptisteheraud.com/test');
+mongoose.connect('mongodb://backup.baptisteheraud.com/TP10');
 
-// Définition d’un modèle Cat.
-var Cat = mongoose.model('Cat', { name: String });
-
-// Instanciation du modèle en question.
-var kitty = new Cat({ name: "toto"});
-
-kitty.save(function (err) {
-	 if (err) // ...
-	     console.log('meow');
-});
-
-
+var User = mongoose.model('User', { id: Number });
 
 exports.getUser =  function (req, res) {
-    userId++;
+  userId++;
+  var Guest = new User({ id: userId});
+    Guest.save(function (err) {
+       if (err) // ...
+           console.log('erreur');
+        });
     res.send({id:userId});
 };
 
