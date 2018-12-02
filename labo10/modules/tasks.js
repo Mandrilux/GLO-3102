@@ -80,23 +80,28 @@ exports.deleteTasks = function (req, res) {
 };
 
 exports.updateTasks = function (req, res) {
-    let flag = -1;
+
     let id = req.params.task;
     let name = req.body.name;
 
     let userId = req.params.id;
-    let i;
-    for (i = 0; i < tasks.length; i++){
-        if (id == tasks[i].taskId && userId == tasks[i].userId) {
-            flag = i;
-        }
-    }
-    if (flag != -1){
-        tasks[flag].name = name;
-        res.send({id:tasks[flag].taskId, name: tasks[flag].name});
-    }
-    else
+
+    Task.findOneAndUpdate({
+      _id :id,
+      userId: userId
+    },
     {
-        res.status(400).send("Task with id '" + id + "' doesn't exist.");
-    }
+      name: name
+    },
+    {
+      new : true,
+      runValidators: true
+    })
+    .then(doc => {
+        console.log(doc);
+        res.send({id:doc._id, name: doc.name});
+    })
+    .catch(err => {
+      res.status(400).send("Task with id '" + id + "' doesn't exist.");
+    })
 };
