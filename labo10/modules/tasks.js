@@ -1,12 +1,11 @@
 let  mongoose = require('mongoose');
+let  database = require('./database');
 let  userModel = require('./Model/User');
 let  taskModel = require('./Model/Task');
-let  database = require('./database');
-//mongoose.connect('mongodb://backup.baptisteheraud.com/TP10');
 
 exports.getUser =  function (req, res) {
-  var Guest = new userModel({ roles: "User"});
-    Guest.save()
+    User = new userModel({ roles: "User"});
+    User.save()
     .then(doc => {
         console.log(doc);
         res.send({id:doc['_id']});
