@@ -1,11 +1,11 @@
 let  mongoose = require('mongoose');
+let  userModel = require('./Model/User');
+let  taskModel = require('./Model/Task');
 mongoose.connect('mongodb://backup.baptisteheraud.com/TP10');
 
-var User = mongoose.model('User', { roles: String });
-var Task = mongoose.model('Task', { userId: String, name: String });
 
 exports.getUser =  function (req, res) {
-  var Guest = new User({ roles: "User"});
+  var Guest = new userModel({ roles: "User"});
     Guest.save()
     .then(doc => {
         console.log(doc);
@@ -24,7 +24,7 @@ exports.getId =  function (req, res) {
 exports.getTasksByID = function (req, res) {
     let userId = req.params.id;
 
-    Task.find({
+    taskModel.find({
       userId: userId
     })
     .then(doc => {
@@ -46,7 +46,7 @@ exports.addTasks = function (req, res) {
   let name = req.body.name;
   let id = req.params.id;
 
-  var TaskValue = new Task({ userId: id, name: name});
+  var TaskValue = new taskModel({ userId: id, name: name});
     TaskValue.save()
     .then(doc => {
         console.log(doc);
@@ -63,7 +63,7 @@ exports.deleteTasks = function (req, res) {
     let id = req.params.task;
     let userId = req.params.id;
 
-    Task.findOneAndRemove({
+    taskModel.findOneAndRemove({
       _id :id,
       userId: userId
     })
@@ -86,7 +86,7 @@ exports.updateTasks = function (req, res) {
 
     let userId = req.params.id;
 
-    Task.findOneAndUpdate({
+    taskModel.findOneAndUpdate({
       _id :id,
       userId: userId
     },
