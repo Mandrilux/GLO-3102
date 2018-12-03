@@ -1,8 +1,8 @@
 let  mongoose = require('mongoose');
 let  userModel = require('./Model/User');
 let  taskModel = require('./Model/Task');
-mongoose.connect('mongodb://backup.baptisteheraud.com/TP10');
-
+let  database = require('./database');
+//mongoose.connect('mongodb://backup.baptisteheraud.com/TP10');
 
 exports.getUser =  function (req, res) {
   var Guest = new userModel({ roles: "User"});
@@ -94,8 +94,7 @@ exports.updateTasks = function (req, res) {
       name: name
     },
     {
-      new : true,
-      runValidators: true
+      new : true
     })
     .then(doc => {
         console.log(doc);
